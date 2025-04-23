@@ -35,31 +35,15 @@ The [Driver Drowsiness Dataset (DDD)](https://www.kaggle.com/datasets/rakibulece
   - Test: 2,091 images (5%)
 
 
-## Model Architecture
-```python
-model = Sequential([
-    TimeDistributed(Conv2D(8, (3,3), activation='relu'), input_shape=(5, 128, 128, 3)),
-    TimeDistributed(BatchNormalization()),
-    TimeDistributed(MaxPooling2D(2,2)),
-    # ... 2 more Conv blocks ...
-    TimeDistributed(GlobalAveragePooling2D()),
-    LSTM(16),
-    Dense(1, activation='sigmoid')
-])
 
-Key Specifications:
+## Key Specifications:
+- Parameters: 9,537 (37.25 KB)
+- Optimizer: Adam (lr=0.0001)
+- Loss: Binary Crossentropy
+- Batch Size: 32
 
-Parameters: 9,537 (37.25 KB)
-
-Optimizer: Adam (lr=0.0001)
-
-Loss: Binary Crossentropy
-
-Batch Size: 32
-
-Results
+## Results
 After 20 epochs:
-
-Metric	Training	Validation
-Accuracy	92.98%	98.39%
-Loss	0.2373	0.1307
+- Metric	Training	Validation
+- Accuracy	92.98%	98.39%
+- Loss	0.2373	0.1307
